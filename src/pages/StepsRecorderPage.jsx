@@ -61,7 +61,6 @@ const StepsRecorderPage = () => {
         }
         return [...acc, curr];
       }, []);
-      console.log(newData);
       return setTableData(newData);
     }
     return setTableData([

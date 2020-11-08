@@ -1,10 +1,7 @@
-import './App.css';
+import "./App.css";
+import React from "react";
 import StepsRecorderPage from "./pages/StepsRecorderPage";
 
-function App() {
-  return (
-   <StepsRecorderPage />
-  );
-}
+const App = () => <StepsRecorderPage />;
 
 export default App;

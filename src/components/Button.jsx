@@ -19,7 +19,7 @@ const Btn = styled.button`
   }
 `;
 
-const Button = ({ onSubmit, valid }) => {
+const Button = ({ onSubmit }) => {
   return <Btn onClick={onSubmit}>ADD</Btn>;
 };
 
