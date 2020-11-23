@@ -73,6 +73,10 @@ const StepsRecorderPage = () => {
     ]);
   };
 
+  const handleStepsChange = (value) => {
+    setSteps(value);
+  };
+
   const handleDelete = (id) => {
     const newData = tableData.filter((entry) => entry.id !== id);
     setTableData(newData);
@@ -95,13 +99,15 @@ const StepsRecorderPage = () => {
         <label htmlFor="hours">
           <Input steps={steps} onInput={handleStepsInput} />
         </label>
-        <Button />
+        <Button value={"ADD"} />
       </FormWrapper>
       <Table
         date={date}
         steps={steps}
         data={tableData}
+        onInput={handleStepsChange}
         onDelete={handleDelete}
+        setTableData={setTableData}
       />
     </Container>
   );

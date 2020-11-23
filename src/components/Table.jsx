@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import TableRow from "./TableRow";
 
 const TableStyles = styled.div`
   max-width: 400px;
@@ -33,7 +34,7 @@ const RowStyles = styled.div`
   }
 `;
 
-const Table = ({ data, onDelete }) => {
+const Table = ({ data, onDelete, handleStepsChange, setTableData }) => {
   const sortedData = data.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
@@ -44,14 +45,15 @@ const Table = ({ data, onDelete }) => {
     sortedData.map(({ id, date, steps }) => {
       return (
         <RowStyles key={id}>
-          <div className="date">{formatDate(date)}</div>
-          <div className="steps">{steps}</div>
-          <div className="edit">
-            <i className="fas fa-user-edit" />
-          </div>
-          <div onClick={() => onDelete(id)} className="remove-btn">
-            <i className="fas fa-times" />
-          </div>
+          <TableRow
+            id={id}
+            date={formatDate(date)}
+            steps={steps}
+            onDelete={onDelete}
+            onInput={handleStepsChange}
+            setTableData={setTableData}
+            data={data}
+          />
         </RowStyles>
       );
     })
