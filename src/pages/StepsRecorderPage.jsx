@@ -27,17 +27,17 @@ const StepsRecorderPage = () => {
   const [tableData, setTableData] = useState([
     {
       id: 0,
-      date: "2008-02-11",
+      date: "2019-08-20",
       steps: 14,
     },
     {
       id: 1,
-      date: "2018-05-29",
+      date: "2020-07-19",
       steps: 9,
     },
     {
       id: 2,
-      date: "2020-05-23",
+      date: "2006-06-18",
       steps: 8,
     },
   ]);

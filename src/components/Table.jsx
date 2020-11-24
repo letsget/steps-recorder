@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import TableRow from "./TableRow";
+import { formatDate } from "../common/helpers";
 
 const TableStyles = styled.div`
   max-width: 400px;
@@ -38,8 +39,6 @@ const Table = ({ data, onDelete, handleStepsChange, setTableData }) => {
   const sortedData = data.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
-
-  const formatDate = (date) => date.split("-").reverse().join("-");
 
   const dataToRender = sortedData.length ? (
     sortedData.map(({ id, date, steps }) => {

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { formatDate } from "../common/helpers";
 
 const TableRow = ({ date, steps, onDelete, id, setTableData, data }) => {
   console.log(date, steps, id);
 
   const [edit, setEdit] = useState(false);
   const [editSteps, setEditSteps] = useState(steps);
-  const [editDate, setEditDate] = useState(date);
+  const [editDate, setEditDate] = useState(formatDate(date));
 
   const handleEditChange = ({ target: { value } }) => {
     setEditSteps(value);
@@ -47,8 +48,18 @@ const TableRow = ({ date, steps, onDelete, id, setTableData, data }) => {
         </>
       ) : (
         <>
-          <input type="date" value={editDate} onChange={handleDateChange} />
-          <input type="text" value={editSteps} onChange={handleEditChange} />
+          <input
+            style={{ width: "125px" }}
+            type="date"
+            value={editDate}
+            onChange={handleDateChange}
+          />
+          <input
+            style={{ width: "60px" }}
+            type="text"
+            value={editSteps}
+            onChange={handleEditChange}
+          />
           <button onClick={() => handleEditSubmit(id)}>save</button>
           <button onClick={handleEdit}>cancel</button>
         </>
